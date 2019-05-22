@@ -7,13 +7,19 @@ type props = {
     value: string;
     onClick(e: MouseEvent<HTMLElement>): void;
 }
-// ${value} ${isDisabled}
-const classes: string = `button`;
 
-const Button: React.FC<props> = ({ isDisabled, value, onClick: handleClick }) => (
-    <div className="buttons">
-        <button onClick={handleClick} className={classes}>{value}</button>
-    </div>
-)
+const Button: React.FC<props> = ({ isDisabled, value, onClick: handleClick }) => {
+    var styleDisable:string = '';
+    if (isDisabled) {styleDisable = 'default'} else { styleDisable = 'disabled'};
+    const classes: string = `button ${value} ${styleDisable}`;
+    console.log(value);
+    console.log(styleDisable);
+    return (
+        <div className="buttons">
+            <button onClick={handleClick} className={classes}>{value}</button>
+        </div>
+    )
+}
+
 
 export default Button;
