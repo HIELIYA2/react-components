@@ -1,0 +1,57 @@
+h1{
+    font-size: 50px;
+    color: yellowgreen;
+}
+.button{
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-family: Lato_regular;
+    margin: 10px;
+    padding: 16px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s
+}
+.primary.default{
+    border: 2px solid #7543F8;
+    background-color: #7543F8;
+    color: rgb(255, 255, 255)
+}
+.primary.default:hover{
+    background-color: rgb(103, 58, 216);
+}
+.secondary.default{
+    border: 2px solid #7543F8;
+    background-color: #E5DAFE;
+    color: #7543F8;
+}
+.secondary.default:hover{
+    background-color: rgb(208, 198, 231);
+}
+.tertiary.default{
+    border: 0 solid rgb(139, 0, 139);
+    background-color: #F0EFF1;
+    color: #565557;
+}
+.tertiary.default:hover{
+    background-color: rgb(219, 218, 219);
+}
+.primary.disabled{
+    border: 2px solid #D5C9FF;
+    background-color: #D5C9FF;
+    color: rgb(255, 255, 255)
+}
+.secondary.disabled{
+    border: 2px solid #D5C9FF;
+    background-color: #fff;
+    color: #D5C9FF;
+}
+.tertiary.disabled{
+    border: 0 solid rgb(139, 0, 139);
+    background-color: #F0EFF1;
+    color: #D4D3D4;
+}
+
+
+
