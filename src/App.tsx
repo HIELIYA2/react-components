@@ -12,8 +12,9 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
       <h1>react-components</h1>
+      {/* onClick={()=>{}} */}
       <Button value="primary" isDisabled="default"/>
-      <Button value="primary" isDisabled="disabled" onClick={()=>{}}/>
+      <Button value="primary" isDisabled="disabled"/>
       <Button value="secondary" isDisabled="default"/>
       <Button value="secondary" isDisabled="disabled"/>
       <Button value="tertiary" isDisabled="default"/>
