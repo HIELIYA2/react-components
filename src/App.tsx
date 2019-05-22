@@ -12,13 +12,12 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
       <h1>react-components</h1>
-      {/* onClick={()=>{}} */}
-      <Button value="primary" isDisabled="default"/>
-      <Button value="primary" isDisabled="disabled"/>
-      <Button value="secondary" isDisabled="default"/>
-      <Button value="secondary" isDisabled="disabled"/>
-      <Button value="tertiary" isDisabled="default"/>
-      <Button value="tertiary" isDisabled="disabled"/>
+      <Button value="primary" isDisabled={true} onClick={e => console.log(e)} />
+      <Button value="primary" isDisabled={false} onClick={() => console.log('2') }/>
+      <Button value="secondary" isDisabled={true} onClick={() => console.log('3') }/>
+      <Button value="secondary" isDisabled={false} onClick={() => console.log('4') }/>
+      <Button value="tertiary" isDisabled={true} onClick={() => console.log('5') }/>
+      <Button value="tertiary" isDisabled={false} onClick={()=>{}}/>
       <Tags/>
       </header>
     </div>
