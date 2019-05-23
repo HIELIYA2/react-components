@@ -1,3 +1,5 @@
+//Button component
+
 import React, { MouseEvent } from "react";
 import './Button.css';
 
@@ -9,8 +11,8 @@ type props = {
 }
 
 const Button: React.FC<props> = ({ isDisabled, value, onClick: handleClick }) => {
-    var styleDisable:string = '';
-    if (isDisabled) {styleDisable = 'default'} else { styleDisable = 'disabled'};
+    var styleDisable: string = '';
+    if (isDisabled) { styleDisable = 'default' } else { styleDisable = 'disabled' };
     const classes: string = `button ${value} ${styleDisable}`;
     console.log(value);
     console.log(styleDisable);
@@ -20,6 +22,5 @@ const Button: React.FC<props> = ({ isDisabled, value, onClick: handleClick }) =>
         </div>
     )
 }
-
 
 export default Button;
