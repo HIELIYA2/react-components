@@ -2,50 +2,71 @@ import React, { Component } from "react";
 import './Tags.css';
 import Tag from '../tag/Tag';
 // eslint-disable-next-line
-import { string } from "prop-types";
+import { string, number } from "prop-types";
 
 
 class Tags extends Component {
 
     state = {
-        tags: [{
-            id: 1,
-            name: 'tag1'
-        }, {
-            id: 2,
-            name: 'tag2'
-        }]
+        currentTag: '',
+        tags: []
     }
 
     remove = () => {
         console.log('button X clicked');
+        console.log();
     }
 
-    addTag = (event: any) => {
-        event.preventDefault();
-        // let tag: string = this.refs.tag.value;
-        // let id: string = makeId();
-        // console.log(this.refs.tag.value);
-        // this.setState.
+    handleSubmit(e: any) {
+        e.preventDefault();
+        let title = this.state.currentTag;
+        let id = this.makeId(9);
+        this.setState({
+            currentTag: '',
+            tags: [
+                ...this.state.tags,
+                { title, id }
+            ]
+        })
     }
 
-    makeId(): string {
-        return 'xxx'
+    makeId(length: number): string {
+        var text = '';
+        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (var i = 0; i < length; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
     }
 
     render() {
+        console.log(this.state);
         return (
             <section>
                 <div className="tags-container">
-                    <Tag value="Tag1" isDeletable={true} onClick={this.remove} />
-                    <form onSubmit={this.addTag.bind(this)}>
-                        <input type="text" ref="tag" placeholder="Enter tag name" />
-
+                    <form onSubmit={e => this.handleSubmit(e)}>
+                        <input
+                            type="text"
+                            placeholder="Add a tag"
+                            value={this.state.currentTag}
+                            onChange={e => this.setState({ currentTag: e.target.value })} />
+                        <button type="submit">Add</button>
                     </form>
-                    <ul>{this.state.tags.map(tag => <li key={tag}>{tag.name}</li>)}</ul>
+                    <ul>
+                        {this.state.tags.map((tag: ITag, index: number) =>
+                            <li>
+                                <Tag value={tag.title} isDeletable={true} onClick={this.remove} />
+                            </li>
+                        )}
+                    </ul>
                 </div>
             </section>
         )
     }
 }
+
+interface ITag {
+    id: string;
+    title: string;
+}
+
 export default Tags;
