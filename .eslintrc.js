@@ -12,11 +12,26 @@ module.exports =  {
   },
   rules:  {
     "max-len": ["error", {"code": 120}],
+    "react/jsx-indent": ["off"],
+    "react/jsx-filename-extension": ["off"],
     "react/prop-types": ["off"],
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": [
+        ".storybook/**",
+        "stories/**",
+      ]
+    }],
   },
   settings:  {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      "typescript": {},
+    },
     react:  {
       version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
     },
   },
+  plugins: ["import"],
 };
