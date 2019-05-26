@@ -3,7 +3,11 @@ import './Tags.css';
 import Tag from '../tag/Tag';
 // eslint-disable-next-line
 import { string, number } from "prop-types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
+library.add(faPlus);
 
 class Tags extends Component {
 
@@ -21,6 +25,7 @@ class Tags extends Component {
         e.preventDefault();
         let title = this.state.currentTag;
         let id = this.makeId(9);
+        if (title.length <= 0) return
         this.setState({
             currentTag: '',
             tags: [
@@ -43,18 +48,21 @@ class Tags extends Component {
         return (
             <section>
                 <div className="tags-container">
-                    <form onSubmit={e => this.handleSubmit(e)}>
+                    <form className="tags-form" onSubmit={e => this.handleSubmit(e)}>
                         <input
                             type="text"
                             placeholder="Add a tag"
+                            className="tags-input"
                             value={this.state.currentTag}
                             onChange={e => this.setState({ currentTag: e.target.value })} />
-                        <button type="submit">Add</button>
+                        <button className="tags-add-button" type="submit">
+                            <FontAwesomeIcon icon="plus" />
+                        </button>
                     </form>
-                    <ul>
+                    <ul className="tags-ul">
                         {this.state.tags.map((tag: ITag, index: number) =>
-                            <li>
-                                <Tag value={tag.title} isDeletable={true} onClick={this.remove} />
+                            <li className="tags-li">
+                                <Tag value={tag.title} key={index} isDeletable={true} onClick={this.remove} />
                             </li>
                         )}
                     </ul>
