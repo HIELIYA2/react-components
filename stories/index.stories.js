@@ -1,36 +1,30 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStroopwafel } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faStroopwafel)
-
 import Button from '../src/cmps/button/Button';
 
-// storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+library.add(faStroopwafel);
 
 storiesOf('Button', module)
-  .add('primary1', () => (
-    <Button value="primary" isDisabled={true}
-      onClick={() => console.log('button clicked')} />
-  ))
-  .add('primary2', () => (
-    <Button value="primary" isDisabled={false} />
-  ))
-  .add('secondary1', () => (
-    <Button value="secondary" isDisabled={true}
-      onClick={() => console.log('button clicked')} />
-  ))
-  .add('secondary2', () => (
-    <Button value="secondary" isDisabled={false} />
-  ))
-  .add('tertiary1', () => (
-    <Button value="tertiary" isDisabled={true}
-      onClick={() => console.log('button clicked')} />
-  ))
-  .add('tertiary2', () => (
-    <Button value="tertiary" isDisabled={false} />
-  ));
+    .addDecorator(withKnobs)
+    .add('catalogue', () => (
+        <>
+            <h1>Primary</h1>
+            <Button value="primary" isDisabled onClick={() => console.log('button clicked')} />
+            <h1>Primary Disabled</h1>
+            <Button value="primary" isDisabled={false} />
+            <h1>Secondary</h1>
+            <Button value="secondary" isDisabled onClick={() => console.log('button clicked')} />
+            <h1>Secondary Disabled</h1>
+            <Button value="secondary" isDisabled={false} />
+            <h1>Tertiary</h1>
+            <Button value="tertiary" isDisabled onClick={() => console.log('button clicked')} />
+            <h1>Tertiary Disabled</h1>
+            <Button value="tertiary" isDisabled={false} />
+        </>
+    ))
+    .add('playground', () => <Button value={text('value', 'primary')} isDisabled={boolean('isDisabled', true)} />);
