@@ -1,17 +1,17 @@
-.tag-container{
+.tag-container {
     background-color: rgb(189, 189, 189);
     margin: 2px;
     padding: 5px;
     display: flex;
     justify-content: space-between;
-    border-radius: 50px;    
+    border-radius: 50px;
 }
 
-.tag-name{
+.tag-name {
     padding-left: 6px;
 }
 
-.tag-x-button{
+.tag-x-button {
     margin-left: 5px;
     border: 0;
     background-color: rgb(126, 126, 126);
@@ -19,5 +19,3 @@
     color: rgb(255, 255, 255);
     cursor: pointer;
 }
-
-

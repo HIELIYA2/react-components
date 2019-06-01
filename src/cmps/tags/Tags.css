@@ -1,24 +1,24 @@
-.tags-container{
+.tags-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.tags-form{
+.tags-form {
     max-width: 220px;
     background-color: rgb(189, 189, 189);
     margin: 2px;
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    border-radius: 50px;   
+    border-radius: 50px;
 }
-.tags-input{
+.tags-input {
     border: 0;
     background-color: rgba(189, 189, 189, 0);
     width: 90%;
 }
-.tags-add-button{
+.tags-add-button {
     margin-left: 5px;
     border: 0;
     background-color: rgb(126, 126, 126);
@@ -26,11 +26,9 @@
     color: rgb(185, 204, 204);
     cursor: pointer;
 }
-.tags-ul{
+.tags-ul {
     display: flex;
     flex-direction: row;
 }
-.tags-li{
-
+.tags-li {
 }
-
