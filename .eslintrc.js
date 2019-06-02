@@ -18,5 +18,7 @@ module.exports = {
         ecmaVersion: 2018,
     },
     plugins: ['react'],
-    rules: {},
+    rules: {
+        'no-unused-vars': 'off', // TODO remove
+    },
 };
