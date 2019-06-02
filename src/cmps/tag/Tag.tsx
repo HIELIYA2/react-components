@@ -1,28 +1,32 @@
-import React, { MouseEvent } from "react";
+import React from 'react';
 import './Tag.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faTimes);
 
-type props = {
+interface Props {
+    id: string;
     isDeletable?: boolean;
     value: string;
-    onClick(e: MouseEvent<HTMLElement>): void;
+    onClick: (id: string) => void;
 }
 
-const Tag: React.FC<props> = ({ isDeletable, value, onClick: handleClick }) => {
+const Tag: React.FC<Props> = ({ isDeletable, id, value, onClick }) => {
+    const handleClick = () => {
+        onClick(id);
+    };
     return (
-        <section>
-            <div className="tag-container">
-                <div className="tag-name">{value}</div>
-                <button onClick={handleClick} className="tag-x-button" >
+        <div className="tag-container">
+            <div className="tag-name">{value}</div>
+            {isDeletable && (
+                <button onClick={handleClick} className="tag-x-button">
                     <FontAwesomeIcon icon="times" />
                 </button>
-            </div>
-        </section>
-    )
-}
+            )}
+        </div>
+    );
+};
 
 export default Tag;
