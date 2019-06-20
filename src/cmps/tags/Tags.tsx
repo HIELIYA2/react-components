@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import './Tags.css';
 import Tag from '../tag/Tag';
 // import { string, number } from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 // import { any, element } from 'prop-types';
-
-library.add(faPlus);
 
 class Tags extends Component {
     state = {
@@ -18,6 +13,7 @@ class Tags extends Component {
     remove = (id: string) => {
         let index = this.state.tags.findIndex((element: any) => element.id === id);
         this.setState(this.state.tags.splice(index, 1));
+        // this.setState(state => ({ tags: state.tags.splice(index, 1) }));
     };
 
     handleSubmit = (e: any) => {
@@ -39,13 +35,12 @@ class Tags extends Component {
     };
 
     checkDouble(tag: string) {
-        let arr: any[] = [];
+        let arr: Array<string> = [];
         this.state.tags.forEach((element: any) => {
             arr.push(element.title);
         });
-        arr.push(tag);
-        let uniqueItems = [...new Set(arr)];
-        return uniqueItems.length === arr.length;
+        const result = arr.find(Tag => Tag === tag);
+        return result ? false : true;
     }
 
     makeId(length: number): string {
@@ -68,13 +63,13 @@ class Tags extends Component {
                             onChange={e => this.setState({ currentTag: e.target.value })}
                         />
                         <button className="tags-add-button" type="submit">
-                            <FontAwesomeIcon icon="plus" />
+                            +
                         </button>
                     </form>
                     <ul className="tags-ul">
-                        {this.state.tags.map((tag: ITag, index: number) => (
-                            <li className="tags-li" key={index}>
-                                <Tag value={tag.title} id={tag.id} isDeletable={true} onClick={this.remove} />
+                        {this.state.tags.map((tag: ITag) => (
+                            <li key={tag.id}>
+                                <Tag value={tag.title} id={tag.id} isDeletable onClick={this.remove} />
                             </li>
                         ))}
                     </ul>
@@ -88,5 +83,8 @@ interface ITag {
     id: string;
     title: string;
 }
+// interface MyState {
+//     tags: Array<{ id: string; isDeletable: boolean; value: string }>;
+// }
 
 export default Tags;

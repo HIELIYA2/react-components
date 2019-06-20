@@ -15,8 +15,7 @@
 }
 .tags-input {
     border: 0;
-    background-color: rgba(189, 189, 189, 0);
-    width: 90%;
+    background-color: rgba(189, 189, 189);
 }
 .tags-add-button {
     margin-left: 5px;
@@ -29,6 +28,4 @@
 .tags-ul {
     display: flex;
     flex-direction: row;
-}
-.tags-li {
 }
