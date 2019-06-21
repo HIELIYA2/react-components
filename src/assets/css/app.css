@@ -3,15 +3,15 @@
   box-sizing: border-box;
   color: black;
 }
-a{
+a {
   color: black;
 }
 a:link {
-    text-decoration: none;
-} 
-a:hover{
-    color: black;
-}  
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+}
 
 .App-header {
   text-align: center;
