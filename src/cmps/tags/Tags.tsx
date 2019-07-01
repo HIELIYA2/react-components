@@ -49,7 +49,7 @@ class Tags extends Component<Props, State> {
       arr.push(element.title);
     });
     const result = arr.find(Tag => Tag === tag);
-    return result ? false : true;
+    return !result;
   }
 
   makeId(length: number): string {
