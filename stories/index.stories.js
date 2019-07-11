@@ -2,16 +2,13 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faStroopwafel } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '../src/cmps/button/Button';
 import Tags from '../src/cmps/tags/Tags';
 import Tag from '../src/cmps/tag/Tag';
+import TextToSay from '../src/cmps/textToSay/textToSay';
 
-library.add(faStroopwafel);
-
-storiesOf('Button', module)
+storiesOf('Button')
   .addDecorator(withKnobs)
   .add('catalogue', () => (
     <>
@@ -40,3 +37,13 @@ storiesOf('Tags')
     </>
   ))
   .add('playground', () => <Tag value={text('value', 'I am tag')} isDeletable={boolean('isDeletable', false)} />);
+
+storiesOf('TextToSay')
+  .addDecorator(withKnobs)
+  .add('catalogue', () => (
+    <>
+      <h1>TextToSay</h1>
+      <TextToSay text="Hello world" />
+    </>
+  ))
+  .add('playground', () => <TextToSay text={text('value', 'Hello world')} />);
